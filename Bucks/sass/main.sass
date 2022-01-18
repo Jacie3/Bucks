@@ -1,0 +1,229 @@
+* body, h1, h2, h3, h4, h5, h6, p, div, img
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+$dark: #261e1e
+$green: #00471c
+$cream: #f0ebd2
+$gold: #d9cfa5
+
+@mixin number
+    font-family: 'Neonderthaw', cursive
+@mixin title-regular
+    font-family: 'Oswald', sans-serif
+    font-weight: 400
+@mixin title-bold
+    font-family: 'Oswald', sans-serif
+    font-weight: 700
+@mixin paragraph-regular
+    font-family: 'Roboto', sans-serif
+    font-weight: 400
+@mixin paragraph-italic
+    font-family: 'Roboto', sans-serif
+    font-weight: 300
+    font-style: italic
+
+body
+    background-image: linear-gradient(#f0ebd2c2, #f0ebd2c9), url(../images/giannis.png)
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    position: relative
+    width: 100%
+    height: 100%
+    overflow: hidden
+    .grid-container
+        display: grid
+        grid-template-columns: 200px 400px 400px 200px
+        grid-template-rows: 1fr 1fr 1fr 1fr
+        position: relative
+    .navigation-container
+        display: grid
+        grid-row: 1 / 5
+        grid-column: 1 / 2
+        height: 100%
+        width: 100%
+        background: $dark
+        @include paragraph-regular
+        color: $cream   
+        .navigation
+            display: grid
+            grid-template-rows: 1fr 6fr 1fr
+            .navigation__title
+                text-align: center
+                font-size: 2rem
+                padding: 1em
+                text-transform: uppercase
+                display: grid
+                grid-row: 1 / 2
+            .navigation__list
+                list-style: none
+                display: grid
+                grid-row: 2 / 3
+                margin: 0
+                padding: 0
+                justify-content: center
+                align-content: center
+                .navigation__item
+                    margin: 1.5em
+                    display: grid
+                    justify-content: center
+                    .navigation__link
+                        color: $cream
+                        text-decoration: none
+                        text-transform: uppercase
+                        @include: @include paragraph-regular
+                        font-size: 1.2rem
+                        padding-bottom: .5em
+                        &:hover
+                            color: $gold
+                    .navigation__link--current
+                        border-bottom: solid 3px $green
+        .social-icons
+            display: grid
+            grid-row: 3 / 4
+            align-content: end
+            margin-bottom: 1em
+            .icon-container
+                display: flex
+                justify-content: space-evenly
+                font-size: 1.2rem
+                margin-bottom: 1em
+                cursor: pointer
+    .quote
+        display: grid
+        grid-row: 1 / 5
+        grid-column: 2 / 3
+        margin-left: 4em
+        .quote__paragraph
+            display: grid
+            grid-template-rows: .3fr .1fr .5fr
+        .quote__cite
+            display: grid
+            grid-row: 2 / 3
+            @include paragraph-regular
+            color: $green
+            font-size: 2rem
+            display: inline
+            align-self: end
+            .quote__cite--smaller
+                font-size: 1.5rem
+        .quote__quotes-container
+            display: grid
+            grid-row: 3 / 4
+            margin-top: -3em
+            &::before
+                content: "\201C	"
+                display: inline
+                font-size: 4rem
+                position: relative
+                top: 90%
+            &::after
+                content: "\201E	"
+                display: inline
+                font-size: 4rem
+                position: relative
+                left: 90%
+                bottom: 120%
+            .quote__giannis
+                @include paragraph-italic
+                font-size: 1.3rem
+                padding: 1em
+                align-self: start
+    .title
+        position: absolute
+        z-index: -1
+        .title__heading
+            @include title-bold
+            font-size: 54vh
+            transform: rotate(-90deg)
+            position: relative
+            left: 38%
+            top: 60px
+            color: $dark     
+    .image-container
+        display: grid
+        grid-row: 1 / 5
+        grid-column: 3 / 5
+        position: relative
+        left: 45%
+        top: 20%
+        .image
+            max-width: 120%
+            height: auto
+            position: relative
+        .image__caption
+            color: $cream
+            @include paragraph-regular
+            text-transform: uppercase
+            font-weight: 500
+        .image__caption--1
+            position: absolute
+            font-size: 10rem
+            bottom: 90%
+            left: 10%
+            .green-font
+                color: $green
+        .image__caption--2
+            position: absolute
+            font-size: 10rem
+            left: 52.5%
+            top: 18%
+            transform: rotate(-90deg)
+            color: $green
+    .stats
+        position: absolute
+        bottom: 0
+        color: $cream
+        display: flex
+        justify-self: center
+        .stats__list
+            display: flex
+            @include number
+            list-style: none
+            font-size: 4rem
+            margin: 0
+        .stats__item
+            margin: 0 1.5em 0 1.5em
+            color: white
+            text-shadow: 0 0 2px white, 0 0 10px white, 0 0 20px $green, 0 0 40px $green
+        .stats__item--mpg 
+            &::after
+                content: 'MPG'
+                @include paragraph-regular
+                font-size: 1rem
+        .stats__item--rpg 
+            &::after
+                content: 'RPG'
+                @include paragraph-regular
+                font-size: 1rem
+        .stats__item--ppg 
+            &::after
+                content: 'PPG'
+                @include paragraph-regular
+                font-size: 1rem
+        .stats__item--apg 
+            &::after
+                content: 'APG'
+                @include paragraph-regular
+                font-size: 1rem
+    .player-navigation
+        display: grid
+        grid-row: 2 / 4
+        grid-column: 6 / 7
+        width: 100px
+        height: 200px
+        justify-content: center
+        align-content: center
+        transform: translateY(50%)
+        .player-navigation__button
+            width: 12px 
+            height: 12px 
+            border-radius: 50%
+            background: rgba(0, 71, 28, .5)
+            margin: 1em 0 0 0
+        .player-navigation__button--current
+            background: $green
+
+        

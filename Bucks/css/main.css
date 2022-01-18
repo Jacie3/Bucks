@@ -1,0 +1,215 @@
+@charset "UTF-8";
+* body, h1, h2, h3, h4, h5, h6, p, div, img {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-image: linear-gradient(#f0ebd2c2, #f0ebd2c9), url(../images/giannis.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+  body .grid-container {
+    display: grid;
+    grid-template-columns: 200px 400px 400px 200px;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    position: relative; }
+  body .navigation-container {
+    display: grid;
+    grid-row: 1/5;
+    grid-column: 1/2;
+    height: 100%;
+    width: 100%;
+    background: #261e1e;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    color: #f0ebd2; }
+    body .navigation-container .navigation {
+      display: grid;
+      grid-template-rows: 1fr 6fr 1fr; }
+      body .navigation-container .navigation .navigation__title {
+        text-align: center;
+        font-size: 2rem;
+        padding: 1em;
+        text-transform: uppercase;
+        display: grid;
+        grid-row: 1/2; }
+      body .navigation-container .navigation .navigation__list {
+        list-style: none;
+        display: grid;
+        grid-row: 2/3;
+        margin: 0;
+        padding: 0;
+        justify-content: center;
+        align-content: center; }
+        body .navigation-container .navigation .navigation__list .navigation__item {
+          margin: 1.5em;
+          display: grid;
+          justify-content: center; }
+          body .navigation-container .navigation .navigation__list .navigation__item .navigation__link {
+            color: #f0ebd2;
+            text-decoration: none;
+            text-transform: uppercase;
+            @include: @include paragraph-regular;
+            font-size: 1.2rem;
+            padding-bottom: 0.5em; }
+            body .navigation-container .navigation .navigation__list .navigation__item .navigation__link:hover {
+              color: #d9cfa5; }
+          body .navigation-container .navigation .navigation__list .navigation__item .navigation__link--current {
+            border-bottom: solid 3px #00471c; }
+    body .navigation-container .social-icons {
+      display: grid;
+      grid-row: 3/4;
+      align-content: end;
+      margin-bottom: 1em; }
+      body .navigation-container .social-icons .icon-container {
+        display: flex;
+        justify-content: space-evenly;
+        font-size: 1.2rem;
+        margin-bottom: 1em;
+        cursor: pointer; }
+  body .quote {
+    display: grid;
+    grid-row: 1/5;
+    grid-column: 2/3;
+    margin-left: 4em; }
+    body .quote .quote__paragraph {
+      display: grid;
+      grid-template-rows: 0.3fr 0.1fr 0.5fr; }
+    body .quote .quote__cite {
+      display: grid;
+      grid-row: 2/3;
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      color: #00471c;
+      font-size: 2rem;
+      display: inline;
+      align-self: end; }
+      body .quote .quote__cite .quote__cite--smaller {
+        font-size: 1.5rem; }
+    body .quote .quote__quotes-container {
+      display: grid;
+      grid-row: 3/4;
+      margin-top: -3em; }
+      body .quote .quote__quotes-container::before {
+        content: "“";
+        display: inline;
+        font-size: 4rem;
+        position: relative;
+        top: 90%; }
+      body .quote .quote__quotes-container::after {
+        content: "„";
+        display: inline;
+        font-size: 4rem;
+        position: relative;
+        left: 90%;
+        bottom: 120%; }
+      body .quote .quote__quotes-container .quote__giannis {
+        font-family: "Roboto", sans-serif;
+        font-weight: 300;
+        font-style: italic;
+        font-size: 1.3rem;
+        padding: 1em;
+        align-self: start; }
+  body .title {
+    position: absolute;
+    z-index: -1; }
+    body .title .title__heading {
+      font-family: "Oswald", sans-serif;
+      font-weight: 700;
+      font-size: 54vh;
+      transform: rotate(-90deg);
+      position: relative;
+      left: 38%;
+      top: 60px;
+      color: #261e1e; }
+  body .image-container {
+    display: grid;
+    grid-row: 1/5;
+    grid-column: 3/5;
+    position: relative;
+    left: 45%;
+    top: 20%; }
+    body .image-container .image {
+      max-width: 120%;
+      height: auto;
+      position: relative; }
+    body .image-container .image__caption {
+      color: #f0ebd2;
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-weight: 500; }
+    body .image-container .image__caption--1 {
+      position: absolute;
+      font-size: 10rem;
+      bottom: 90%;
+      left: 10%; }
+      body .image-container .image__caption--1 .green-font {
+        color: #00471c; }
+    body .image-container .image__caption--2 {
+      position: absolute;
+      font-size: 10rem;
+      left: 52.5%;
+      top: 18%;
+      transform: rotate(-90deg);
+      color: #00471c; }
+  body .stats {
+    position: absolute;
+    bottom: 0;
+    color: #f0ebd2;
+    display: flex;
+    justify-self: center; }
+    body .stats .stats__list {
+      display: flex;
+      font-family: "Neonderthaw", cursive;
+      list-style: none;
+      font-size: 4rem;
+      margin: 0; }
+    body .stats .stats__item {
+      margin: 0 1.5em 0 1.5em;
+      color: white;
+      text-shadow: 0 0 2px white, 0 0 10px white, 0 0 20px #00471c, 0 0 40px #00471c; }
+    body .stats .stats__item--mpg::after {
+      content: "MPG";
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-size: 1rem; }
+    body .stats .stats__item--rpg::after {
+      content: "RPG";
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-size: 1rem; }
+    body .stats .stats__item--ppg::after {
+      content: "PPG";
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-size: 1rem; }
+    body .stats .stats__item--apg::after {
+      content: "APG";
+      font-family: "Roboto", sans-serif;
+      font-weight: 400;
+      font-size: 1rem; }
+  body .player-navigation {
+    display: grid;
+    grid-row: 2/4;
+    grid-column: 6/7;
+    width: 100px;
+    height: 200px;
+    justify-content: center;
+    align-content: center;
+    transform: translateY(50%); }
+    body .player-navigation .player-navigation__button {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(0, 71, 28, 0.5);
+      margin: 1em 0 0 0; }
+    body .player-navigation .player-navigation__button--current {
+      background: #00471c; }
+
+/*# sourceMappingURL=main.css.map */
